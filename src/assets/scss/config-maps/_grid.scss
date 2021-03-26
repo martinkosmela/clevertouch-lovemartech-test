@@ -1,0 +1,9 @@
+$default-grid: (
+  gutter-width: 30px,
+  container-max-widths: (
+    mobile: 720px,
+    tablet: 960px,
+    desktop: 1170px,
+    large-desktop: 1420px,
+  ),
+);

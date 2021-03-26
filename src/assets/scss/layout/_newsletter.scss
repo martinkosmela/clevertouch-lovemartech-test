@@ -1,0 +1,70 @@
+.newsletter {
+  $checkbox-size: 24px;
+  
+  @include spread-children(10px, y);
+
+  &__group {
+    display: flex;
+  }
+
+  &__input {
+    width: 100%;
+    border: 0;
+    background-color: $black-100;
+    padding: 12px 18px;
+    border-radius: 6px 0 0 6px;
+    font-size: 18px;
+    color: $white;
+    flex: 1;
+
+    &:focus {
+      outline: 0;
+      box-shadow: 0 20px 40px rgba($secondary, 0.1);
+      transition: box-shadow 0.25s ease;
+    }
+
+    &::placeholder {
+      color: $gray-200;
+    }
+  }
+
+  &__submit {
+    white-space: nowrap;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+
+  &__checkbox {
+    display: none;
+
+    &:checked + label {
+      &::before {
+        content: $icon-dropdown;
+        font: normal normal normal 1em / 1 #{$icon-font};
+        color: $primary;
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__label {
+    position: relative;
+    padding-left: 32px;
+    font-size: 14px;
+    text-align: left;
+
+    &::before {
+      content: '';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $checkbox-size;
+      height: $checkbox-size;
+      background-color: $black-100;
+      border-radius: 6px;
+    }
+  }
+}

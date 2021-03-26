@@ -1,0 +1,63 @@
+.form {
+  $input-height: 35px;
+  $form-group-width: 140px;
+
+  @include spread-children($spacer-lg, y);
+  @include spread-children($spacer-md, x);
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__group {
+    position: relative;
+    margin-right: $spacer-md;
+    min-width: $form-group-width;
+    flex: 1 0 calc(50% - #{$spacer-md});
+  }
+
+  &__input {
+    position: relative;
+    width: 100%;
+    height: $input-height;
+    border: 0;
+    font-size: 20px;
+    font-weight: $font-weight-bold;
+    color: $gray-100;
+    border-bottom: 3px solid $gray-100;
+    background-color: transparent;
+    transition: border 0.25s ease;
+    z-index: 1;
+
+    &:focus {
+      outline: 0;
+      border-bottom-color: $secondary;
+    }
+
+    &--filled + label,
+    &:focus + label {
+      transform: translate(0, -$input-height) scale(0.8);
+      color: $secondary;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    color: $gray-100;
+    font-size: 20px;
+    font-weight: $font-weight-bold;
+    text-transform: lowercase;
+    transform-origin: top left;
+    transition: transform 0.25s ease, color 0.25s ease;
+    z-index: 0;
+  }
+
+  &__submit {
+    flex-basis: 50%;
+    margin-left: auto;
+    margin-top: 1.25rem;
+  }
+}

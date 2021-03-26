@@ -1,0 +1,22 @@
+$primary: #e72176;
+$secondary: #00bcb5;
+$black: #000;
+$black-100: #1E2C39;
+$white: #fff;
+$bg-alt: #253746;
+$bg-default: #21313f;
+$gray-100: #98a4af;
+$gray-200: rgba($white, 0.3);
+$gray-300: #e5e5e5;
+
+$body-color: $white;
+$body-bg: $bg-default;
+
+$icon-font-path: '../../assets/icon-font/fonts';
+$icon-font: 'Martech Icons';
+
+$grid-breakpoints: map-get($default-breakpoints, 'breakpoints');
+
+$spacer-md: 1.25rem;
+$spacer-lg: 2.5rem;
+$spacer-xl: 5rem;

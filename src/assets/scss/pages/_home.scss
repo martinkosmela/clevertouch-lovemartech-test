@@ -1,0 +1,137 @@
+$nav-safe-space: map-get($default-content, 'nav-safe-space');
+$logo-width: 220px;
+$features-decoration-size: 200px;
+$features-decoration-shift: 60px;
+
+.wrapper {
+  padding-top: $nav-safe-space;
+  overflow: hidden;
+}
+
+.main {
+  $block-name: '.main';
+
+  @include container;
+  display: flex;
+  position: relative;
+  padding-top: $spacer-xl;
+  padding-bottom: $spacer-xl;
+
+  @include media-breakpoint-down('tablet') {
+    flex-direction: column;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 120%;
+    top: 50%;
+    left: 12%;
+    transform: translateY(-50%);
+    background: url('../../assets/images/momentum-logo-min.svg') no-repeat center center / contain;
+    opacity: 0.3;
+    z-index: -1;
+
+    @include media-breakpoint-down('tablet') {
+      display: none;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    font-weight: $font-weight-bold;
+    padding-right: $spacer-xl;
+
+    @include media-breakpoint-down('mobile') {
+      padding: 0;
+      text-align: center;
+    }
+
+    #{$block-name}__logo {
+      max-width: $logo-width;
+      margin: 0;
+
+      @include media-breakpoint-down('mobile') {
+        margin: 0 auto;
+      }
+    }
+
+    #{$block-name}__heading {
+      margin: $spacer-md 0;
+      font-size: 2.875rem;
+      text-transform: capitalize;
+    }
+
+    #{$block-name}__subheading {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__form-wrapper {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+
+    @include media-breakpoint-down('tablet') {
+      margin-top: $spacer-xl;
+    }
+  }
+
+  &__form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $white;
+    padding: $spacer-lg $spacer-xl;
+    border-radius: 19px;
+    border: 1px solid $gray-300;
+    width: 100%;
+    min-height: 150%;
+    z-index: 1;
+
+    @include media-breakpoint-down('tablet') {
+      position: relative;
+    }
+
+    @include media-breakpoint-down('mobile') {
+      padding: $spacer-lg;
+    }
+    
+    #{$block-name}__form-title {
+      font-size: 2.25rem;
+      font-weight: $font-weight-bold;
+      color: $bg-alt;
+      margin-bottom: $spacer-lg;
+    }
+  }
+}
+
+.features {
+  position: relative;
+  background-color: $bg-alt;
+  padding: $spacer-xl 0 $spacer-xl * 2 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: $features-decoration-size;
+    height: $features-decoration-size;
+    top: $spacer-xl - $spacer-md;
+    left: -$features-decoration-shift;
+    mask: url('../../assets/images/shapes/arrow.svg') no-repeat center center / contain;
+    background-color: $gray-200;
+    transform: rotate(45deg);
+
+    @include media-breakpoint-down('tablet') {
+      top: initial;
+      bottom: -50px;
+    }
+  }
+
+  &__wrapper {
+    @include container;
+  }
+}

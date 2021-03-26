@@ -1,0 +1,134 @@
+.footer {
+  $block-name: '.footer';
+  $logo-size: 450px;
+  $icon-logo-size: 75px;
+
+  width: 100%;
+  padding-top: $spacer-lg;
+  padding-bottom: $spacer-lg;
+  background-color: $bg-default;
+
+  &__container {
+    @include container;
+  }
+  
+  &__logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include media-breakpoint-down('mobile') {
+      @include spread-children($spacer-lg, y);
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #{$block-name}__logo {
+      width: 100%;
+      max-width: $logo-size;
+      margin: 0;
+    }
+
+    #{$block-name}__icon-logo {
+      fill: $white;
+      width: $icon-logo-size;
+    }
+  }
+
+  &__details {
+    margin-top: $spacer-xl;
+    display: flex;
+    justify-content: space-between;
+
+    @include media-breakpoint-down('tablet') {
+      flex-wrap: wrap;
+    }
+
+    @include media-breakpoint-down('mobile') {
+      display: block;
+      margin-top: $spacer-lg;
+    }
+  }
+
+  &__details-block {
+    flex: 1;
+
+    @include media-breakpoint-down('tablet') {
+      flex-basis: 50%;
+      text-align: center;
+      margin-bottom: $spacer-md;
+    }
+
+    @include media-breakpoint-down('mobile') {
+      margin-bottom: $spacer-lg;
+    }
+
+    #{$block-name}__header {
+      font-size: 1.25rem;
+      font-weight: $font-weight-bold;
+      text-transform: lowercase;
+    }
+  
+    #{$block-name}__text {
+      font-size: 1.125rem;
+      font-weight: $font-weight-light;
+      margin: 12px 0;
+    }
+
+    #{$block-name}__action { 
+      @include media-breakpoint-down('tablet') {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  &__badges {
+    @include spread-children($spacer-md, x);
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: $spacer-md;
+    max-width: 100%;
+
+    #{$block-name}__badge {
+      height: 84px;
+    }
+
+    @include media-breakpoint-down('desktop') {
+      justify-content: center;
+    }
+  }
+
+  &__actions {
+    @include spread-children($spacer-md, x);
+    display: flex;
+    max-width: 100%;
+    margin-top: $spacer-md;
+
+    @include media-breakpoint-down('tablet') {
+      justify-content: center;
+    }
+  }
+}
+
+.credits {
+  font-size: 0.875rem;
+  color: $gray-200;
+  text-align: right;
+
+  &__text {
+    margin: 12px 0;
+  }
+
+  &__link {
+    color: inherit;
+  }
+
+  @include media-breakpoint-down('desktop') {
+    text-align: center;
+  }
+}
+
+.newsletter {
+  margin: 12px 0;
+}

@@ -1,0 +1,13 @@
+@mixin spread-children($size, $axis) {
+  @if $axis == y {
+    margin-bottom: -$size !important;
+    & > * {
+      margin-bottom: $size !important;
+    }
+  } @else if $axis == x {
+    margin-right: -$size !important;
+    & > * {
+      margin-right: $size !important;
+    }
+  }
+}
